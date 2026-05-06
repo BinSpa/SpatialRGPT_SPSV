@@ -159,6 +159,26 @@ export DEPTH_ANYTHING_PATH="PATH_TO_DEPTHANYTHING"
 
 Then use `scripts/srgpt/eval/srgpt_bench.sh PATH_TO_CKPT CKPT_NAME CONV_TYPE`.
 
+#### Cross-Model Evaluation Results
+
+We evaluate 13 VLMs on SpatialRGPT-Bench using rule-based evaluation (`eval_canonical_v4.py`). Ground truth is extracted via regex for quantitative/direction questions, and a single-pass LLM judge (DeepSeek-V4-Flash) compares predictions against raw ground truth for qualitative questions. Quantitative answers are correct if within 25% relative error.
+
+| Model | Total | Qualitative | Quantitative | Direction | Distance |
+|---|---|---|---|---|---|
+| Qwen3-VL-8B-Instruct | 37.27 | 60.88 | 16.56 | 25.23 | 15.11 |
+| MiniCPM-V-4.5 | 36.06 | 63.47 | 12.02 | 18.69 | 10.90 |
+| LLaVA-OV-1.5-8B-Instruct | 34.92 | 61.19 | 11.88 | 14.95 | 11.37 |
+| Qwen3-VL-4B | 34.78 | 58.75 | 13.75 | 11.21 | 14.17 |
+| SAIL-VL2-8B | 34.35 | 59.82 | 12.02 | 16.82 | 11.21 |
+| Molmo2-4B | 33.50 | 57.23 | 12.68 | 14.02 | 12.46 |
+| Molmo2-8B | 33.00 | 56.16 | 12.68 | 14.95 | 12.31 |
+| InternVL3-8B-Instruct | 32.79 | 53.27 | 14.82 | 11.21 | 15.42 |
+| LLaVA-OV-1.5-4B-Instruct | 32.72 | 57.38 | 11.08 | 15.89 | 10.28 |
+| Gemma-3-4B-IT | 30.73 | 50.38 | 13.48 | 14.02 | 13.40 |
+| InternVL3.5-4B | 23.04 | 40.94 | 7.34 | 5.61 | 7.63 |
+| LLaVA-OV-1.5-4B-Base | 15.72 | 30.44 | 2.80 | 4.67 | 2.49 |
+| LLaVA-OV-1.5-8B-Base | 5.41 | 10.96 | 0.53 | 0.00 | 0.62 |
+
 ### General VLM Benchmarks
 
 Our code is compatible with VILA's evaluation scripts. See [VILA/evaluations](https://github.com/NVlabs/VILA?tab=readme-ov-file#evaluations) for details.

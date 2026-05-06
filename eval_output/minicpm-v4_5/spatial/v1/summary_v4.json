@@ -1,0 +1,112 @@
+{
+  "total_accuracy": 36.06,
+  "quantitative_accuracy": 12.02,
+  "qualitative_accuracy": 63.47,
+  "total_samples": 1406,
+  "quantitative_samples": 749,
+  "quantitative_correct": 90,
+  "qualitative_samples": 657,
+  "qualitative_correct": 417,
+  "by_category": {
+    "above_choice": {
+      "accuracy": 96.55,
+      "correct": 28,
+      "total": 29
+    },
+    "above_predicate": {
+      "accuracy": 78.38,
+      "correct": 29,
+      "total": 37
+    },
+    "behind_predicate": {
+      "accuracy": 49.09,
+      "correct": 27,
+      "total": 55
+    },
+    "below_choice": {
+      "accuracy": 94.74,
+      "correct": 18,
+      "total": 19
+    },
+    "below_predicate": {
+      "accuracy": 51.43,
+      "correct": 18,
+      "total": 35
+    },
+    "big_predicate": {
+      "accuracy": 45.9,
+      "correct": 28,
+      "total": 61
+    },
+    "direction": {
+      "accuracy": 18.69,
+      "correct": 20,
+      "total": 107
+    },
+    "distance_data": {
+      "accuracy": 10.9,
+      "correct": 70,
+      "total": 642
+    },
+    "front_predicate": {
+      "accuracy": 63.64,
+      "correct": 35,
+      "total": 55
+    },
+    "left_choice": {
+      "accuracy": 92.86,
+      "correct": 26,
+      "total": 28
+    },
+    "left_predicate": {
+      "accuracy": 56.0,
+      "correct": 14,
+      "total": 25
+    },
+    "right_choice": {
+      "accuracy": 83.33,
+      "correct": 20,
+      "total": 24
+    },
+    "right_predicate": {
+      "accuracy": 67.86,
+      "correct": 19,
+      "total": 28
+    },
+    "short_choice": {
+      "accuracy": 75.76,
+      "correct": 25,
+      "total": 33
+    },
+    "short_predicate": {
+      "accuracy": 31.82,
+      "correct": 7,
+      "total": 22
+    },
+    "small_predicate": {
+      "accuracy": 51.11,
+      "correct": 23,
+      "total": 45
+    },
+    "tall_choice": {
+      "accuracy": 83.87,
+      "correct": 26,
+      "total": 31
+    },
+    "tall_predicate": {
+      "accuracy": 57.69,
+      "correct": 15,
+      "total": 26
+    },
+    "thin_predicate": {
+      "accuracy": 47.92,
+      "correct": 23,
+      "total": 48
+    },
+    "wide_predicate": {
+      "accuracy": 64.29,
+      "correct": 36,
+      "total": 56
+    }
+  }
+}

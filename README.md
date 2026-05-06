@@ -140,26 +140,7 @@ Our evaluation scripts takes the following arguments, `PATH_TO_CKPT`, `CKPT_NAME
 First, prepare the evaluation annotation following [RegionCLIP](https://github.com/microsoft/RegionCLIP).
 Then, use `scripts/srgpt/eval/coco_cls.sh PATH_TO_CKPT CKPT_NAME CONV_TYPE`.
 
-### SpatialRGPT-Bench Evaluation
-
-First, download the images from [omni3d](https://github.com/facebookresearch/omni3d), following there instructions. Then download annotations from [https://huggingface.co/datasets/a8cheng/SpatialRGPT-Bench](a8cheng/SpatialRGPT-Bench). Modify the path in `scripts/srgpt/eval/srgpt_bench.sh` to corresponding paths.
-
-Note that for SpatialRGPT-Bench, you need to clone the Depth-Anything repository and download the necessary checkpoint:
-
-```bash
-git clone https://github.com/LiheYoung/Depth-Anything.git
-wget https://huggingface.co/spaces/LiheYoung/Depth-Anything/resolve/main/checkpoints/depth_anything_vitl14.pth
-```
-
-Place `depth_anything_vitl14.pth` under `Depth-Anything/checkpoints`, and set the path to the environment variable.
-
-```bash
-export DEPTH_ANYTHING_PATH="PATH_TO_DEPTHANYTHING"
-```
-
-Then use `scripts/srgpt/eval/srgpt_bench.sh PATH_TO_CKPT CKPT_NAME CONV_TYPE`.
-
-#### Cross-Model Evaluation Results
+### Cross-Model Evaluation on SpatialRGPT-Bench
 
 We evaluate 13 VLMs on SpatialRGPT-Bench using rule-based evaluation (`eval_canonical_v4.py`). Ground truth is extracted via regex for quantitative/direction questions, and a single-pass LLM judge (DeepSeek-V4-Flash) compares predictions against raw ground truth for qualitative questions. Quantitative answers are correct if within 25% relative error.
 
@@ -178,6 +159,31 @@ We evaluate 13 VLMs on SpatialRGPT-Bench using rule-based evaluation (`eval_cano
 | InternVL3.5-4B | 23.04 | 40.94 | 7.34 | 5.61 | 7.63 |
 | LLaVA-OV-1.5-4B-Base | 15.72 | 30.44 | 2.80 | 4.67 | 2.49 |
 | LLaVA-OV-1.5-8B-Base | 5.41 | 10.96 | 0.53 | 0.00 | 0.62 |
+
+To reproduce, run:
+
+```bash
+python eval_canonical_v4.py <path_to_model_results> --api_key <YOUR_API_KEY> --max_workers 2
+```
+
+### SpatialRGPT-Bench Evaluation
+
+First, download the images from [omni3d](https://github.com/facebookresearch/omni3d), following there instructions. Then download annotations from [https://huggingface.co/datasets/a8cheng/SpatialRGPT-Bench](a8cheng/SpatialRGPT-Bench). Modify the path in `scripts/srgpt/eval/srgpt_bench.sh` to corresponding paths.
+
+Note that for SpatialRGPT-Bench, you need to clone the Depth-Anything repository and download the necessary checkpoint:
+
+```bash
+git clone https://github.com/LiheYoung/Depth-Anything.git
+wget https://huggingface.co/spaces/LiheYoung/Depth-Anything/resolve/main/checkpoints/depth_anything_vitl14.pth
+```
+
+Place `depth_anything_vitl14.pth` under `Depth-Anything/checkpoints`, and set the path to the environment variable.
+
+```bash
+export DEPTH_ANYTHING_PATH="PATH_TO_DEPTHANYTHING"
+```
+
+Then use `scripts/srgpt/eval/srgpt_bench.sh PATH_TO_CKPT CKPT_NAME CONV_TYPE`.
 
 ### General VLM Benchmarks
 
